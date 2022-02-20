@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Memo app</string>
+    <string name="titleMemoText">메모 리스트</string>
+    <string name="addText">추가 하기</string>
+    <string name="checkText">정말 지우시겠습니까?</string>
+    <string name="cancelText">취소하기</string>
+    <string name="nextDialogText">계속하기</string>
+</resources>
