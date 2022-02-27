@@ -27,7 +27,6 @@ class MemoAdapter(private val context: Context, var list: List<MemoEntity>, var 
 
         holder.memo.text = memo.memo
         holder.deleteBtn.setOnClickListener {
-
             val dialogBuilder = android.app.AlertDialog.Builder(context)
             //메세지, 아이콘, 다이얼 로그 외부 터치 캔슬 막기, 취소/계속 버튼
             dialogBuilder.setMessage(R.string.checkText)
@@ -44,8 +43,6 @@ class MemoAdapter(private val context: Context, var list: List<MemoEntity>, var 
             alert.setTitle(R.string.checkText)
             alert.show()
         }
-
-
     }
 
     override fun getItemCount(): Int {

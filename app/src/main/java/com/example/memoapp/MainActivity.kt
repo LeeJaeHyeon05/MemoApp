@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -15,6 +16,10 @@ class MainActivity : AppCompatActivity(), OnDeleteListener {
     lateinit var db : MemoDatabase
     var memoList = listOf<MemoEntity>()
 
+    private val btnAdd = findViewById<Button>(R.id.buttonAdd)
+    private val editText = findViewById<EditText>(R.id.editTextMemo)
+    private val recyclerView = findViewById<RecyclerView>(R.id.memoRecyclerView)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -22,17 +27,14 @@ class MainActivity : AppCompatActivity(), OnDeleteListener {
         //디비 불러오기
         db = MemoDatabase.getInstance(this)!!
 
-        val btnAdd = findViewById<Button>(R.id.buttonAdd)
-        val editText = findViewById<EditText>(R.id.editTextMemo)
-        val recyclerView = findViewById<RecyclerView>(R.id.memoRecyclerView)
 
         btnAdd.setOnClickListener {
 
             val memo = MemoEntity(null, editText.text.toString())
             editText.setText("")
             insertMemo(memo)
-
         }
+
 
         //리사이클러뷰
         recyclerView.layoutManager = LinearLayoutManager(this)
